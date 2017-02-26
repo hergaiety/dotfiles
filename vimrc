@@ -44,6 +44,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/unite.vim'
 
 " Visuals
+Plug 'mhinz/vim-startify'
 Plug 'dracula/vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -72,6 +73,16 @@ call plug#end()
 
 " Theme: Dracula
 color dracula
+"
+" vim-startify
+let g:startify_change_to_dir = 0
+let g:startify_custom_header = [
+      \ '     ____       _ _____    ____        ',
+      \ '    / __/    __(_) _/ /_  / __/__ __ __',
+      \ '   _\ \| |/|/ / / _/ __/ / _// _ \\ \ /',
+      \ '  /___/|__,__/_/_/ \__/ /_/  \___/_\_\ ',
+      \ '',
+\ ]
 
 " vim-airline
 let g:airline#extensions#tabline#enabled=1
