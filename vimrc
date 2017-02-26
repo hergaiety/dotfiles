@@ -60,6 +60,12 @@ Plug 'Shougo/vimfiler.vim', { 'on': 'VimFiler' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
 
+" Markdown and Distraction Free Writing
+Plug 'suan/vim-instant-markdown'
+Plug 'junegunn/limelight.vim'
+Plug 'reedes/vim-wordy'
+Plug 'dbmrq/vim-ditto'
+
 " Movement
 Plug 'justinmk/vim-sneak'
 
@@ -146,3 +152,23 @@ xmap f <Plug>Sneak_f
 xmap F <Plug>Sneak_F
 omap f <Plug>Sneak_f
 omap F <Plug>Sneak_F
+
+" writing
+let g:limelight_conceal_ctermfg = 'DarkGray'
+let g:limelight_conceal_guifg = 'DarkGray'
+highlight Folded ctermbg=NONE
+highlight FoldColumn ctermbg=NONE
+
+autocmd Filetype markdown call SetMarkdownOptions()
+
+function SetMarkdownOptions()
+  " Enable spellcheck.
+  set spell spelllang=en_us
+  set nonumber
+  set norelativenumber
+  set foldcolumn=10
+  set textwidth=80
+  Limelight
+  Wordy weak
+  DittoOn
+endfunction

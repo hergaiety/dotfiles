@@ -1,8 +1,9 @@
 #!/bin/bash
 echo "-= Installing System Dependencies =-"
-brew install zsh tmux neovim/neovim/neovim python3 ag
+brew install zsh tmux neovim/neovim/neovim python3 ag node
 brew tap caskroom/cask
 brew cask install iterm2
+npm -g install instant-markdown-d
 
 echo "-= Installing Fonts =-"
 brew tap caskroom/fonts
