@@ -3,8 +3,6 @@ set encoding=utf8
 
 " Stop word wrapping
 set nowrap
-" Except... on Makrdown. That's good stuff.
-autocmd FileType markdown setlocal wrap
 
 " Adjust system undo levels
 set undolevels=100
@@ -168,7 +166,10 @@ function SetMarkdownOptions()
   set norelativenumber
   set foldcolumn=10
   set textwidth=80
+  set wrap
+  set linebreak
+  set nolist
   Limelight
-  Wordy weak
+  " Wordy weak
   DittoOn
 endfunction
