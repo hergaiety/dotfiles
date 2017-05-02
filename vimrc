@@ -6,6 +6,7 @@ set nowrap
 
 " Adjust system undo levels
 set undolevels=100
+set undodir=~./.local/share/nvim/undo
 
 " Use system clipboard
 set clipboard=unnamed
@@ -126,8 +127,8 @@ imap <left> <nop>
 imap <right> <nop>
 
 " Grepper
-nnoremap <Leader>fp :Grepper<Space>-query<Space>
-nnoremap <Leader>fb :Grepper<Space>-buffers<Space>-query<Space>-<Space>
+nnoremap <Leader>fp :CtrlSF<Space>
+nnoremap <Leader>ft :CtrlSFToggle<Space>
 
 " File Buffer
 nnoremap <Tab> :bnext!<CR>
