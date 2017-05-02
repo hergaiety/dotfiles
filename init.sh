@@ -20,6 +20,9 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 echo "-= Setting Zsh as default shell =-"
 chsh -s /usr/local/bin/zsh
 
+echo "-= Setting NeoVim as default editor =-"
+export EDITOR='nvim'
+
 echo "-= Removing any existing configs =-"
 rm -rf ~/.vim ~/.vimrc ~/.zshrc ~/.tmux ~/.tmux.conf ~/.config/nvim 2> /dev/null
 
