@@ -30,5 +30,9 @@ echo "-= Symlinking new configs =-"
 ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/vimrc ~/.config/nvim/init.vim
+ln -s ~/dotfiles/gitignore ~/.gitignore
+
+echo "-= Setting Global GitIgnore =-"
+git config --global core.excludesfile ~/.gitignore
 
 echo "-= Log out and Log Back In to see changes =-"

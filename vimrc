@@ -51,7 +51,7 @@ Plug 'airblade/vim-gitgutter'
 
 " Navigating Project Files
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
-Plug 'mhinz/vim-grepper'
+Plug 'dyng/ctrlsf.vim'
 Plug 'Shougo/vimfiler.vim', { 'on': 'VimFiler' }
 
 " Code Editing
