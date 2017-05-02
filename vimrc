@@ -58,6 +58,9 @@ Plug 'Shougo/vimfiler.vim', { 'on': 'VimFiler' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
 
+" Languages
+Plug 'joukevandermaas/vim-ember-hbs'
+
 " Markdown and Distraction Free Writing
 Plug 'suan/vim-instant-markdown'
 Plug 'junegunn/limelight.vim'
