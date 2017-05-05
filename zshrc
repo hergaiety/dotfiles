@@ -6,6 +6,9 @@ precmd() { print "" }
 PS1="⟩"
 RPS1="%{$fg[magenta]%}%20<...<%~%<<%{$reset_color%}"
 
+# Aliases
+alias e=ember
+
 # Auto start tmux
 if [ "$TMUX" = "" ]; then tmux; fi
 
