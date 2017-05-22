@@ -85,7 +85,11 @@ call plug#end()
 
 " Theme: Dracula
 color dracula
-"
+
+" ctrlp
+" let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|build\|dist\|dest'
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
 " vim-startify
 let g:startify_change_to_dir = 0
 let g:startify_custom_header = [
