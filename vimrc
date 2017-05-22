@@ -67,8 +67,6 @@ Plug 'Quramy/tsuquyomi'
 Plug 'posva/vim-vue'
 
 " Markdown and Distraction Free Writing
-Plug 'suan/vim-instant-markdown'
-Plug 'junegunn/limelight.vim'
 Plug 'reedes/vim-wordy'
 Plug 'dbmrq/vim-ditto'
 
@@ -181,7 +179,6 @@ function SetMarkdownOptions()
   set wrap
   set linebreak
   set nolist
-  Limelight
   " Wordy weak
   DittoOn
 endfunction
