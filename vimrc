@@ -61,6 +61,10 @@ Plug 'w0rp/ale'
 
 " Languages
 Plug 'joukevandermaas/vim-ember-hbs'
+Plug 'othree/html5.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'posva/vim-vue'
 
 " Markdown and Distraction Free Writing
 Plug 'suan/vim-instant-markdown'
