@@ -173,11 +173,7 @@ function SetMarkdownOptions()
   " Enable spellcheck.
   set spell spelllang=en_us
   set nonumber
-  set norelativenumber
-  set foldcolumn=10
-  set textwidth=80
   set wrap
-  set linebreak
   set nolist
   " Wordy weak
   DittoOn
