@@ -58,6 +58,9 @@ Plug 'Shougo/vimfiler.vim', { 'on': 'VimFiler' }
 " Code Editing
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'svermeulen/vim-easyclip'
 
 " Languages
 Plug 'joukevandermaas/vim-ember-hbs'
@@ -103,6 +106,9 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1
 set laststatus=2
 
+" vim-easyclip
+let g:EasyClipUseSubstituteDefaults=1
+
 " indentLine
 let g:indentLine_enabled = 1
 let g:indentLine_char = "⟩"
@@ -113,13 +119,16 @@ let mapleader="\<SPACE>"
 " Return to last opened file
 nmap <Leader><Leader> <c-^>
 
+" register list
+nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
+
 " adding empty lines
-nnoremap <Leader>[  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
-nnoremap <Leader>]  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+nnoremap <Leader>k  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+nnoremap <Leader>j  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
 " moving current line
-nnoremap <Leader>m[  :<c-u>execute 'move -1-'. v:count1<cr>
-nnoremap <Leader>m]  :<c-u>execute 'move +'. v:count1<cr>
+nnoremap <Leader>mk  :<c-u>execute 'move -1-'. v:count1<cr>
+nnoremap <Leader>mj  :<c-u>execute 'move +'. v:count1<cr>
 
 " arrow keys resize pane
 nnoremap <Left> :vertical resize -1<CR>
