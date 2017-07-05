@@ -70,10 +70,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'posva/vim-vue'
 
-" Markdown and Distraction Free Writing
-Plug 'reedes/vim-wordy'
-Plug 'dbmrq/vim-ditto'
-
 " Movement
 Plug 'justinmk/vim-sneak'
 
