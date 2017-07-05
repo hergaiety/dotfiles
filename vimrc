@@ -5,8 +5,9 @@ set encoding=utf8
 set nowrap
 
 " Adjust system undo levels
-set undolevels=100
+set undofile
 set undodir=~./.local/share/nvim/undo
+set undolevels=100
 
 " Use system clipboard
 set clipboard=unnamed
