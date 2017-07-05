@@ -158,8 +158,8 @@ nnoremap <Leader>p :CtrlP<CR>
 nnoremap <Leader>t :CtrlP<CR>
 
 " vimfiler
-map ` :VimFiler -explorer<CR>
-map ~ :VimFilerCurrentDir -explorer -find<CR>
+map ` :VimFiler -force-hide -explorer<CR>
+map ~ :VimFilerCurrentDir -explorer -force-hide -find<CR>
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
