@@ -144,7 +144,7 @@ imap <right> <nop>
 
 " Grepper
 nnoremap <Leader>fp :CtrlSF<Space>
-nnoremap <Leader>ft :CtrlSFToggle<Space>
+nnoremap <Leader>ft :CtrlSFToggle<CR>
 
 " File Buffer
 nnoremap <Tab> :bnext!<CR>
