@@ -114,6 +114,9 @@ let g:EasyClipUseSubstituteDefaults=1
 let g:indentLine_enabled = 1
 let g:indentLine_char = "⟩"
 
+" ctrlsf
+let g:ctrlsf_default_view_mode = 'compact'
+
 " Leader
 let mapleader="\<SPACE>"
 
