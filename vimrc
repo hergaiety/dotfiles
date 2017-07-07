@@ -1,3 +1,5 @@
+let DirProjectHome = getcwd()
+
 set nomodeline
 set encoding=utf8
 
@@ -41,7 +43,7 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Required
-Plug 'Shougo/unite.vim'
+Plug 'Shougo/denite.nvim'
 
 " Visuals
 Plug 'mhinz/vim-startify'
@@ -54,7 +56,6 @@ Plug 'airblade/vim-gitgutter'
 " Navigating Project Files
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'dyng/ctrlsf.vim'
-Plug 'Shougo/vimfiler.vim', { 'on': 'VimFiler' }
 Plug 'vim-scripts/SearchComplete'
 
 " Code Editing
@@ -151,8 +152,28 @@ nnoremap <Leader>p :CtrlP<CR>
 nnoremap <Leader>t :CtrlP<CR>
 
 " vimfiler
-map ` :VimFiler -force-hide -explorer<CR>
-map ~ :VimFilerCurrentDir -explorer -force-hide -find<CR>
+function! ExploreToggle(bang)
+  if &ft ==# "netrw"
+    :bd
+  else
+    if a:bang
+      :lcd %:p:h
+      :enew
+      :Explore
+    else
+      :exe "lcd " . g:DirProjectHome
+      :enew
+      :Explore
+    endif
+  endif
+endfunction
+command! -bang ET call ExploreToggle(<bang>0)
+
+map ` :ET<CR>
+map ~ :ET!<CR>
+let g:netrw_preview = 1
+let g:netrw_banner = 0
+autocmd FileType netrw set nolist
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
