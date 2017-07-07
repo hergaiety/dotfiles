@@ -168,19 +168,11 @@ omap f <Plug>Sneak_f
 omap F <Plug>Sneak_F
 
 " writing
-let g:limelight_conceal_ctermfg = 'DarkGray'
-let g:limelight_conceal_guifg = 'DarkGray'
-highlight Folded ctermbg=NONE
-highlight FoldColumn ctermbg=NONE
-
 autocmd Filetype markdown call SetMarkdownOptions()
 
 function SetMarkdownOptions()
   " Enable spellcheck.
   set spell spelllang=en_us
-  set nonumber
   set wrap
   set nolist
-  " Wordy weak
-  DittoOn
 endfunction
