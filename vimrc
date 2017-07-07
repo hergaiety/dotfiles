@@ -55,6 +55,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'dyng/ctrlsf.vim'
 Plug 'Shougo/vimfiler.vim', { 'on': 'VimFiler' }
+Plug 'vim-scripts/SearchComplete'
 
 " Code Editing
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
