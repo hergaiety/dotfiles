@@ -62,7 +62,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'svermeulen/vim-easyclip'
 
 " Languages
 Plug 'joukevandermaas/vim-ember-hbs'
@@ -103,9 +102,6 @@ let g:startify_custom_header = [
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1
 set laststatus=2
-
-" vim-easyclip
-let g:EasyClipUseSubstituteDefaults=1
 
 " indentLine
 let g:indentLine_enabled = 1
