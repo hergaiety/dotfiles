@@ -142,6 +142,9 @@ let s:menus.git.command_candidates = []
 let mapleader="\<SPACE>"
 let s:menus.neovim.command_candidates += [['Leader: <Space>', '']]
 
+" vim-commentary
+let s:menus.neovim.command_candidates += [['Comment toggle line: gcc', '']]
+
 " vim-airline
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1
