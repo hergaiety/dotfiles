@@ -56,8 +56,10 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Required
+" Menus
 Plug 'Shougo/denite.nvim'
+Plug 'junegunn/vim-emoji'
+Plug 'pocari/vim-denite-emoji'
 
 " Visuals
 Plug 'mhinz/vim-startify'
@@ -235,6 +237,9 @@ let s:menus.git.command_candidates += [['Status `g status`', 'Git status']]
 let s:menus.git.command_candidates += [['Add Patch `g add -p`', 'Git add -p']]
 let s:menus.git.command_candidates += [['Commit `g commit`', 'Git commit']]
 
+" vim-denite-emoji
+let s:menus.neovim.command_candidates += [['Emoji menu: <Leader>e', 'Denite emoji']]
+
 " writing
 autocmd Filetype markdown call SetMarkdownOptions()
 function SetMarkdownOptions()
@@ -259,3 +264,4 @@ call denite#custom#var('menu', 'menus', s:menus)
 nnoremap <Leader>/ :Denite menu<cr>
 nnoremap <Leader>? :Denite menu<cr>
 nnoremap <Leader>g :Denite menu:git<cr>
+nnoremap <Leader>e :Denite emoji<cr>
