@@ -1,5 +1,19 @@
+" vim-startify
+let g:startify_custom_header = [
+      \ '.  .      .  .__                ',
+      \ '\  / _ * _|  |  \._. _. _  _ ._ ',
+      \ ' \/ (_)|(_]  |__/[  (_](_](_)[ )',
+      \ '                       ._|      ',
+      \ '',
+      \ '  <Space> ? for help',
+      \ '',
+\ ]
+let g:startify_change_to_dir = 0
+
+" save project home dir on load
 let DirProjectHome = getcwd()
 
+" generic settings
 set nomodeline
 set encoding=utf8
 
@@ -8,7 +22,7 @@ set nowrap
 
 " Adjust system undo levels
 set undofile
-set undodir=~./.local/share/nvim/undo
+set undodir=~/.local/share/nvim/undo
 set undolevels=100
 
 " Use system clipboard
@@ -57,6 +71,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'dyng/ctrlsf.vim'
 Plug 'vim-scripts/SearchComplete'
+Plug 'tpope/vim-fugitive'
 
 " Code Editing
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -85,19 +100,33 @@ call plug#end()
 " Theme: Dracula
 color dracula
 
-" ctrlp
-" let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|bower_components\|build\|dist\|dest'
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" denite setup
+call denite#custom#map('insert', "<Up>", '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('insert', "<Down>", '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<c-u>', '<denite:scroll_up>' , 'noremap')
+call denite#custom#map('insert', '<c-d>', '<denite:scroll_down>' , 'noremap')
+call denite#custom#option('_', {
+  \ 'prompt': '⟩',
+  \ 'winheight': 10,
+  \ 'auto_resize': 1,
+  \})
+let s:menus = {}
+let s:menus.neovim = {
+  \ 'description': 'Tools & Keybindings'
+\ }
+let s:menus.neovim.command_candidates = []
+let s:menus.tmux = {
+  \ 'description': 'Keybindings'
+\ }
+let s:menus.tmux.command_candidates = []
+let s:menus.git = {
+  \ 'description': 'Git power menu <Leader>g'
+\ }
+let s:menus.git.command_candidates = []
 
-" vim-startify
-let g:startify_change_to_dir = 0
-let g:startify_custom_header = [
-      \ '     ____       _ _____    ____        ',
-      \ '    / __/    __(_) _/ /_  / __/__ __ __',
-      \ '   _\ \| |/|/ / / _/ __/ / _// _ \\ \ /',
-      \ '  /___/|__,__/_/_/ \__/ /_/  \___/_\_\ ',
-      \ '',
-\ ]
+" Leader
+let mapleader="\<SPACE>"
+let s:menus.neovim.command_candidates += [['Leader: <Space>', '']]
 
 " vim-airline
 let g:airline#extensions#tabline#enabled=1
@@ -108,52 +137,54 @@ set laststatus=2
 let g:indentLine_enabled = 1
 let g:indentLine_char = "⟩"
 
-" ctrlsf
-let g:ctrlsf_default_view_mode = 'compact'
-
-" Leader
-let mapleader="\<SPACE>"
-
 " Return to last opened file
 nmap <Leader><Leader> <c-^>
+let s:menus.neovim.command_candidates += [['Reopen last buffer: <Leader><Leader>', 'c-^']]
 
 " register list
 nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
+let s:menus.neovim.command_candidates += [['List registers: ""', ':registers']]
 
 " adding empty lines
 nnoremap <Leader>k  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
 nnoremap <Leader>j  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+let s:menus.neovim.command_candidates += [['Add empty line above: <Leader>k', '']]
+let s:menus.neovim.command_candidates += [['Add empty line below: <Leader>j', '']]
 
 " moving current line
 nnoremap <Leader>mk  :<c-u>execute 'move -1-'. v:count1<cr>
 nnoremap <Leader>mj  :<c-u>execute 'move +'. v:count1<cr>
+let s:menus.neovim.command_candidates += [['Move line up: <Leader>mk', '']]
+let s:menus.neovim.command_candidates += [['Move line down: <Leader>mj', '']]
 
 " arrow keys resize pane
 nnoremap <Left> :vertical resize -1<CR>
 nnoremap <Right> :vertical resize +1<CR>
 nnoremap <Up> :resize -1<CR>
 nnoremap <Down> :resize +1<CR>
+let s:menus.neovim.command_candidates += [['Resize pane: Arrow Keys', '']]
 " disable arrow keys in insert mode
 imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
-" Grepper
-nnoremap <Leader>fp :CtrlSF<Space>
-nnoremap <Leader>ft :CtrlSFToggle<CR>
-
 " File Buffer
 nnoremap <Tab> :bnext!<CR>
 nnoremap <S-Tab> :bprev!<CR>
+let s:menus.neovim.command_candidates += [['Next buffer: <Tab>', 'bnext!']]
+let s:menus.neovim.command_candidates += [['Previous buffer: <Shift><Tab>', 'bprev!']]
 
-" Fuzzy Finder
+" ctrlp Fuzzy Finder
 nnoremap <Leader>p :CtrlP<CR>
 nnoremap <Leader>t :CtrlP<CR>
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let s:menus.neovim.command_candidates += [['Fuzzy Find Files: <Leader>t (or p)', 'CtrlP']]
 
-" vimfiler
+" netrw File Explorer
 function! ExploreToggle(bang)
   if &ft ==# "netrw"
+      :exe "lcd " . g:DirProjectHome
     :bd
   else
     if a:bang
@@ -168,12 +199,13 @@ function! ExploreToggle(bang)
   endif
 endfunction
 command! -bang ET call ExploreToggle(<bang>0)
-
 map ` :ET<CR>
 map ~ :ET!<CR>
+autocmd FileType netrw set nolist
 let g:netrw_preview = 1
 let g:netrw_banner = 0
-autocmd FileType netrw set nolist
+let s:menus.neovim.command_candidates += [['File Explorer: `', 'Explore']]
+let s:menus.neovim.command_candidates += [['File Explorer from current open file: ~', 'Explore']]
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
@@ -187,13 +219,43 @@ xmap f <Plug>Sneak_f
 xmap F <Plug>Sneak_F
 omap f <Plug>Sneak_f
 omap F <Plug>Sneak_F
+let s:menus.neovim.command_candidates += [['Sneak to next character: f <Char> (F back)', '']]
+let s:menus.neovim.command_candidates += [['Sneak to next 2 character sequence: S <Char><Char> (S back)', '']]
+
+" ctrlsf
+nnoremap <Leader>fp :CtrlSF<Space>
+nnoremap <Leader>ft :CtrlSFToggle<CR>
+let g:ctrlsf_default_view_mode = 'compact'
+let s:menus.neovim.command_candidates += [['Find in Project: <Leader>fp', 'CtrlSF ']]
+let s:menus.neovim.command_candidates += [['Find in Project Toggle: <Leader>ft', 'CtrlSFToggle']]
+
+" vim-fugitive
+let s:menus.neovim.command_candidates += [['Git menu: <Leader>g', 'Denite menu:git']]
+let s:menus.git.command_candidates += [['Status `g status`', 'Git status']]
+let s:menus.git.command_candidates += [['Add Patch `g add -p`', 'Git add -p']]
+let s:menus.git.command_candidates += [['Commit `g commit`', 'Git commit']]
 
 " writing
 autocmd Filetype markdown call SetMarkdownOptions()
-
 function SetMarkdownOptions()
   " Enable spellcheck.
   set spell spelllang=en_us
   set wrap
   set nolist
 endfunction
+
+" denite tmux
+let s:menus.tmux.command_candidates += [['Leader: <Ctrl>b', '']]
+let s:menus.tmux.command_candidates += [['Time: <Leader>t', '']]
+let s:menus.tmux.command_candidates += [['New vertical split: <Leader>\', '']]
+let s:menus.tmux.command_candidates += [['New horizontal split: <Leader>-', '']]
+let s:menus.tmux.command_candidates += [['New tab: <Ctrl>t', '']]
+let s:menus.tmux.command_candidates += [['Close tab: <Ctrl>w', '']]
+let s:menus.tmux.command_candidates += [['Next tab: <Ctrl><Tab>', '']]
+let s:menus.tmux.command_candidates += [['Previous tab: <Ctrl><Shift><Tab>', '']]
+
+" denite finalize
+call denite#custom#var('menu', 'menus', s:menus)
+nnoremap <Leader>/ :Denite menu<cr>
+nnoremap <Leader>? :Denite menu<cr>
+nnoremap <Leader>g :Denite menu:git<cr>
