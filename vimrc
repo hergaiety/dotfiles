@@ -81,6 +81,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'AndrewRadev/switch.vim'
 
 " Languages
 Plug 'joukevandermaas/vim-ember-hbs'
@@ -187,6 +188,11 @@ nnoremap <Tab> :bnext!<CR>
 nnoremap <S-Tab> :bprev!<CR>
 let s:menus.neovim.command_candidates += [['Next buffer: <Tab>', 'bnext!']]
 let s:menus.neovim.command_candidates += [['Previous buffer: <Shift><Tab>', 'bprev!']]
+
+" switch
+let g:switch_mapping = "<Leader>s"
+let g:switch_custom_definitions = [['var', 'let', 'const', 'let']]
+let s:menus.neovim.command_candidates += [['Switch under cursor [ex: true -> false]: <Leader>s', 'Switch']]
 
 " ctrlp Fuzzy Finder
 nnoremap <Leader>p :CtrlP<CR>
