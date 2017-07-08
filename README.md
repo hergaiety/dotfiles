@@ -4,6 +4,8 @@ Develop using just the terminal with the very best tools. iTerm2, Tmux, NeoVim, 
 
 Based on the [A Modern Terminal Workflow](https://wrotenwrites.com/a_modern_terminal_workflow_1/) blog series where I walk you step-by-step how [the core of these dotfiles](https://github.com/sharpshark28/modern-terminal-workflow) were written. 
 
+![preview](preview.png)
+
 ## Please Note
 
 **This is intended to set up a developers environment from the ground up.**
