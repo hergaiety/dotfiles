@@ -87,6 +87,7 @@ Plug 'othree/html5.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'posva/vim-vue'
+Plug 'elzr/vim-json'
 
 " Movement
 Plug 'justinmk/vim-sneak'
