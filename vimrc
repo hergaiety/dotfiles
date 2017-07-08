@@ -68,6 +68,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
+Plug 'ryanoasis/vim-devicons'
 
 " Navigating Project Files
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
@@ -94,6 +95,15 @@ Plug 'justinmk/vim-sneak'
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator'
+
+" Visuals
+Plug 'mhinz/vim-startify'
+Plug 'dracula/vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -181,6 +191,8 @@ let s:menus.neovim.command_candidates += [['Previous buffer: <Shift><Tab>', 'bpr
 " ctrlp Fuzzy Finder
 nnoremap <Leader>p :CtrlP<CR>
 nnoremap <Leader>t :CtrlP<CR>
+let g:ctrlp_match_window = 'top,order:ttb,min:1,max:10,results:10'
+let g:ctrlp_line_prefix = ''
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let s:menus.neovim.command_candidates += [['Fuzzy Find Files: <Leader>t (or p)', 'CtrlP']]
 

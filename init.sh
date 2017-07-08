@@ -6,7 +6,7 @@ brew cask install iterm2
 
 echo "-= Installing Fonts =-"
 brew tap caskroom/fonts
-brew cask install font-fira-code
+brew cask install font-firacode-nerd-font
 
 echo "-= Assigning Zsh as Default Shell =-"
 chsh -s $(which zsh)
