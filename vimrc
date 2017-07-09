@@ -82,6 +82,7 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/switch.vim'
+Plug 'jiangmiao/auto-pairs'
 
 " Languages
 Plug 'joukevandermaas/vim-ember-hbs'
