@@ -6,9 +6,6 @@ precmd() { print "" }
 PS1="⟩"
 RPS1="%{$fg[magenta]%}%20<...<%~%<<%{$reset_color%}"
 
-# Aliases
-alias e=ember
-
 # Auto start tmux
 if [ "$TMUX" = "" ]; then tmux; fi
 
@@ -33,3 +30,8 @@ antigen bundle lukechilds/zsh-nvm
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# custom computer config
+if [ -f ~/.zshrc.custom ]; then
+  source ~/.zshrc.custom
+fi
