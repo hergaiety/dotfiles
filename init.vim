@@ -1,4 +1,4 @@
-" install plugin manager - vim-plug
+"install plugin manager - vim-plug
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -10,6 +10,11 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'pangloss/vim-javascript'
+Plug 'joukevandermaas/vim-ember-hbs'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'w0rp/ale'
+Plug 'wsdjeg/FlyGrep.vim'
 call plug#end()
 
 " space leader key
@@ -42,3 +47,6 @@ let g:netrw_banner       = 0
 let g:netrw_keepdir      = 0
 let g:netrw_liststyle    = 1 " or 3
 let g:netrw_sort_options = 'i'
+
+" FlyGrep
+nnoremap <Leader>g :FlyGrep<cr>
