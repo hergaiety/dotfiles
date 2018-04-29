@@ -7,6 +7,7 @@ endif
 
 " plugins
 call plug#begin('~/.config/nvim/plugged')
+Plug 'mhinz/vim-startify'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
@@ -16,6 +17,16 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'w0rp/ale'
 Plug 'wsdjeg/FlyGrep.vim'
 call plug#end()
+
+" vim-startify
+let g:startify_custom_header = [
+      \'   _  __             ___                 ',
+      \'  / |/ /__ _    __  / _ \___ __    _____ ',
+      \' /    / -_) |/|/ / / // / _ `/ |/|/ / _ \',
+      \'/_/|_/\__/|__,__/ /____/\_,_/|__,__/_//_/',
+      \ '',
+\ ]
+let g:startify_change_to_dir = 0
 
 " space leader key
 let mapleader=" "
