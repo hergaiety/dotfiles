@@ -54,6 +54,18 @@ sudo apt-get install neovim
 choco install neovim
 ```
 
+## Tmux
+
+### Linux / MacOS
+
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+---
+
+Install plugins with `Ctrl + b, I` (Best to do after all steps in README are completed)
+
 ## Fish Shell
 
 ### Linux / MacOS
@@ -71,6 +83,7 @@ And follow the prompts.
 
 ```bash
 ln -si ./.hyper.js ~/.hyper.js
+ln -si ./.tmux.conf ~/.tmux.conf
 ln -si ./.init.vim ~/.config/nvim/init.vim
 ln -si ./config.fish ~/.config/fish/config.fish
 ```
