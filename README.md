@@ -60,6 +60,7 @@ choco install neovim
 
 ```bash
 brew install fish
+curl -L https://get.oh-my.fish | fish
 ```
 
 And follow the prompts.
@@ -71,6 +72,7 @@ And follow the prompts.
 ```bash
 ln -si ./.hyper.js ~/.hyper.js
 ln -si ./.init.vim ~/.config/nvim/init.vim
+ln -si ./config.fish ~/.config/fish/config.fish
 ```
 
 ### Windows
