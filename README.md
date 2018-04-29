@@ -35,6 +35,16 @@ choco install firacode
 
 ## NeoVim
 
+_Note, you may get typescript warnings if you don't have `npm i -g typescript` installed globally._
+
+Keybindings:
+
+* Leader `<space>`
+* Switching buffers `Tab`, `Shift + Tab`, `LEADER LEADER` (last opened tab), `LEADER b`(fuzzy find)
+* Fuzzy find file `LEADER f`
+* Grep `Leader g`
+* Sneak `f`, `F`, `s` (2 char), `S`(2 char)
+
 ### MacOS
 
 ```bash
