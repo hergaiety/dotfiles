@@ -23,6 +23,7 @@ Plug 'othree/html5.vim'
 Plug 'posva/vim-vue'
 Plug 'elzr/vim-json'
 Plug 'Quramy/tsuquyomi'
+Plug 'plasticboy/vim-markdown'
 " editing
 Plug 'w0rp/ale'
 Plug 'tpope/vim-commentary'
