@@ -20,11 +20,6 @@ module.exports = {
     // font weight for bold characters: 'normal' or 'bold'
     fontWeightBold: 'bold',
 
-    // transparent background
-    hyperTransparentDynamic: {
-      alpha: 0.8 // default 50%
-    },
-
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
 
@@ -42,7 +37,7 @@ module.exports = {
 
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: '#000',
+    // backgroundColor: '#000',
 
     // terminal selection color
     selectionColor: 'rgba(248,28,229,0.3)',
@@ -140,7 +135,7 @@ module.exports = {
     'hyper-ligatures',
     'hyper-dracula',
     'hyperminimal',
-    'hyper-transparent-dynamic',
+    'hyperfullscreen',
   ],
 
   // in development, you can create a directory under
