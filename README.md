@@ -1,5 +1,9 @@
 # Joe Wroten's Dotfiles
 
+**NOTE**: [Latest dotfiles can be found on Gitlab](https://gitlab.com/gaiety/dotfiles).
+
+---
+
 Develop using just the terminal with the very best tools. iTerm2, Tmux, NeoVim, and Zsh come together to create a solid development environment. Designed to be flexible and powerful.
 
 Based on the [A Modern Terminal Workflow](https://wrotenwrites.com/a_modern_terminal_workflow_1/) blog series where I walk you step-by-step how [the core of these dotfiles](https://github.com/sharpshark28/modern-terminal-workflow) were written. 
